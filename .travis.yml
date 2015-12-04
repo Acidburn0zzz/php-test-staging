@@ -14,7 +14,7 @@ php:
 before_script:
 - for version in $(phpenv versions | tr -d '*' | awk '{ print $1 }' | grep -v system) ; do
     echo "---> php ${version}:" ;
-    if find ~/.phpenv/versions/${version} -name redis.so ; then
+    find ~/.phpenv/versions/${version} -name redis.so | if grep -q redis &>/dev/null ; then
       echo '---> OK' ;
     else
       echo '---> *** NO ***' ;

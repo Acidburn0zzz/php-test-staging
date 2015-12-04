@@ -13,11 +13,11 @@ php:
 
 before_script:
 - for version in $(phpenv versions | tr -d '*' | awk '{ print $1 }' | grep -v system) ; do
-    echo -en "---> php ${version} " ;
-    if find ~/.phpenv/versions/${version} -name redis.so &>/dev/null ; then
-      echo OK ;
+    echo "---> php ${version}:" ;
+    if find ~/.phpenv/versions/${version} -name redis.so ; then
+      echo '---> OK' ;
     else
-      echo '*** NO ***' ;
+      echo '---> *** NO ***' ;
     fi ;
   done
 - find ~/.phpenv/versions -name redis.so || true

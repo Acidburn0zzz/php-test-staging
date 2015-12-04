@@ -13,5 +13,6 @@ php:
 - nightly
 
 before_script:
-- which php-fpm
+- which php-fpm || true
+- phpenv which php-fpm || true
 - for sbin_dir in $(find ~/.phpenv/versions -name sbin) ; do ls -ltra ${sbin_dir} ; done

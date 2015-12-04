@@ -15,4 +15,4 @@ php:
 before_script:
 - which php-fpm || true
 - phpenv which php-fpm || true
-- for sbin_dir in $(find ~/.phpenv/versions -name sbin) ; do ls -ltra ${sbin_dir} ; done
+- for sbin_dir in $(find ~/.phpenv/versions -name sbin) ; do echo "----> ${sbin_dir}:" ; ls -ltra ${sbin_dir} ; done

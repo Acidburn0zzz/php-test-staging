@@ -2,24 +2,10 @@ language: php
 
 sudo: required
 
-group: edge
+group: stable
 
 php:
-# - 5.2
-# - 5.3
-# - 5.4
-# - 5.5
-- 5.6.15
-
-before_script:
-- for version in $(phpenv versions | tr -d '*' | awk '{ print $1 }' | grep -v system) ; do
-    echo "---> php ${version}:" ;
-    find ~/.phpenv/versions/${version} -name redis.so | if grep -q redis &>/dev/null ; then
-      echo '---> OK' ;
-    else
-      echo '---> *** NO ***' ;
-    fi ;
-  done
-- find ~/.phpenv/versions -name redis.so || true
-- find ~/.phpenv/versions -name '*.so' || true
-- find ~/.phpenv/versions -name '*redis*' || true
+- 5.5
+- 5.6
+- 7
+- hhvm
